@@ -1,0 +1,7 @@
+baseURL = 'https://hugo-klepsch.tech/'
+languageCode = 'en-us'
+title = 'Hugo Klepsch'
+
+[taxonomies]
+    tag = "tags"
+    category = "categories"
