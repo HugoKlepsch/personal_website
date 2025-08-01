@@ -1,7 +1,7 @@
 baseURL = 'https://hugo-klepsch.tech/'
 languageCode = 'en-us'
 title = 'Hugo Klepsch'
-theme = 'nostyleplease'
+theme = 'mytheme'
 
 [taxonomies]
     tag = "tags"
