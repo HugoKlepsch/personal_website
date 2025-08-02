@@ -5,3 +5,24 @@ theme: 'mytheme'
 
 taxonomies:
   tag: 'tags'
+
+menus:
+  main:
+    - name: 'Home'
+      pageRef: '/'
+      weight: 10
+    - name: 'Projects'
+      pageRef: '/projects'
+      weight: 20
+    - name: 'Posts'
+      pageRef: '/posts'
+      weight: 20
+    - name: 'Tags'
+      pageRef: '/tags'
+      weight: 30
+
+markup:
+  tableOfContents:
+    startLevel: 1
+    endLevel: 10
+    ordered: false

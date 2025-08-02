@@ -62,3 +62,7 @@ pre {
   padding: 1rem;
   overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
 }
+
+.toc {
+  padding: 1rem;
+}
