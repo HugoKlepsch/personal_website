@@ -45,6 +45,7 @@ th {
 blockquote {
   padding: 1rem;
   background-color: #eee;
+  border-left: 2px solid #222;
 
   p { margin: 0; }
 }
@@ -52,15 +53,18 @@ blockquote {
 code {
   font-family: monospace;
   background-color: #eee;
-  padding: 0.1em 0.2em;
   font-size: 90%;
 }
 
 pre {
   font-family: monospace;
-  background: #eee;
+  background: #eee !important;
   padding: 1rem;
   overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
+  border-left: 2px solid #222;
+  code {
+    font-size: 100%;
+  }
 }
 
 .toc {

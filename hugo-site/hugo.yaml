@@ -26,3 +26,5 @@ markup:
     startLevel: 1
     endLevel: 10
     ordered: false
+  highlight:
+    style: github
