@@ -17,6 +17,48 @@ footer {
 }
 
 a {
-  color: #00e;
   text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+hr {
+  text-align: center;
+  border: 0;
+  margin: 2rem 0;
+
+  &:before { content: '----------' }
+}
+
+table { width: 100%; }
+
+table, th, td {
+  border-collapse: collapse;
+  border: thin solid #222;
+  padding: 0.4rem;
+}
+
+th {
+  font-weight: bold;
+  background-color: #eee;
+}
+
+blockquote {
+  padding: 1rem;
+  background-color: #eee;
+
+  p { margin: 0; }
+}
+
+code {
+  font-family: monospace;
+  background-color: #eee;
+  padding: 0.1em 0.2em;
+  font-size: 90%;
+}
+
+pre {
+  font-family: monospace;
+  background: #eee;
+  padding: 1rem;
+  overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
 }
