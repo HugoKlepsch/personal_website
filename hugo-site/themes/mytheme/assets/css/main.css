@@ -58,7 +58,7 @@ code {
 
 pre {
   font-family: monospace;
-  background: #eee !important;
+  background: #eee !important; /* Fix pre content not having a distinct bg */
   padding: 1rem;
   overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
   border-left: 2px solid #222;
