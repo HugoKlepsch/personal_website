@@ -2,9 +2,9 @@ services:
   nginx:
     image: nginx
     ports:
-      - "5060:80"
+      - "5080:80"
     volumes:
-      - ./config:/etc/nginx
+      - ./config:/etc/nginx:ro
       - ./hugo-site/public:/usr/share/nginx/html/hugo-site:ro
-      - ./public/listable:/usr/share/nginx/html/public/listable:ro
-      - ./public/unlistable:/usr/share/nginx/html/public/unlistable:ro
+      - ./public:/usr/share/nginx/html/public:ro
+      - ./hidden:/usr/share/nginx/html/hidden:ro
