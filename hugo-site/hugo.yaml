@@ -1,4 +1,4 @@
-baseURL: 'https://hugo-klepsch.tech/'
+baseURL: 'https://hugo-klepsch.tech/blog/'
 languageCode: 'en-us'
 title: 'Hugo Klepsch'
 theme: 'mytheme'
