@@ -29,11 +29,16 @@
 
 	handle_path /public/* {
 		root * /srv/public
-		file_server browse
+		file_server {
+		    hide .git-keep
+            browse
+		}
 	}
 
 	handle_path /unlisted/* {
 		root * /srv/unlisted
-		file_server
+		file_server {
+		    hide .git-keep
+		}
 	}
 }
