@@ -8,23 +8,6 @@ set -euo pipefail
 
 SERVICENAME=$(basename $(pwd))
 
-# Load variables
-ENV_FILE=".env.bash"
-
-if [[ ! -f "$ENV_FILE" ]]; then
-  echo "Error: $ENV_FILE file not found." >&2
-  exit 1
-fi
-
-# Use 'set -a' to export all sourced variables to the environment
-set -a
-if ! source "$ENV_FILE"; then
-  echo "Error: Failed to source $ENV_FILE." >&2
-  exit 1
-fi
-set +a
-echo "$ENV_FILE loaded successfully."
-
 # Create generated_config directory, where the generated unit files go before they are installed
 GEN_DIR="$(pwd)/generated_config"
 mkdir -p "${GEN_DIR}"
