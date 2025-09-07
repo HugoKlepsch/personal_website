@@ -1,10 +1,11 @@
 {
-	log {
-		format json
-	}
 }
 
 :5080 {
+	log {
+		format json
+	}
+
 	# Redirect root path to /blog/
 	@root {
 		path /
