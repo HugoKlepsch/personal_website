@@ -1,2 +1,4 @@
 /.idea/
-/hugo-site/themes/hugotheme/
+/generated_config/
+/config/
+/data/
