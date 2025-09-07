@@ -1,0 +1,32 @@
+{
+	log {
+		format json
+	}
+}
+
+:5080 {
+	handle /blog/* {
+		root * /srv/blog
+		templates {
+			extensions {
+				hitCounter {
+					style bright_green
+					pad_digits 7
+				}
+			}
+		}
+		file_server {
+			index index.html
+		}
+	}
+
+	handle /public/* {
+		root * /srv/public
+		file_server browse
+	}
+
+	handle /unlisted/* {
+		root * /srv/unlisted
+		file_server
+	}
+}

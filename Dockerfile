@@ -1,0 +1,13 @@
+# Build stage
+ARG CADDY_VERSION=2.10.2
+FROM caddy:${CADDY_VERSION}-builder-alpine AS builder
+
+# Build Caddy with the hitcounter plugin
+RUN GOTOOLCHAIN=auto xcaddy build \
+    --with github.com/mholt/caddy-hitcounter
+
+# Final stage
+FROM caddy:${CADDY_VERSION}-alpine
+
+# Copy the custom-built Caddy binary
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy

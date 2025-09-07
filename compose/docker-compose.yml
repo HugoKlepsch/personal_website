@@ -1,0 +1,17 @@
+services:
+  caddy:
+    build:
+      context: ../.
+      dockerfile: Dockerfile
+      args:
+        - CADDY_VERSION=2.10.2
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ../Caddyfile:/etc/caddy/Caddyfile:ro
+      - ../config/:/config/
+      - ../data/:/data/
+      - ../hugo-site/public/:/srv/blog/
+      - ../mnt/public/:/srv/public/
+      - ../mnt/unlisted/:/srv/unlisted/
+    user: '1000'
