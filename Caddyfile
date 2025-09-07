@@ -5,7 +5,13 @@
 }
 
 :5080 {
-	handle /blog/* {
+	# Redirect root path to /blog/
+	@root {
+		path /
+	}
+	redir @root /blog/ 308
+
+	handle_path /blog/* {
 		root * /srv/blog
 		templates {
 			extensions {
@@ -20,12 +26,12 @@
 		}
 	}
 
-	handle /public/* {
+	handle_path /public/* {
 		root * /srv/public
 		file_server browse
 	}
 
-	handle /unlisted/* {
+	handle_path /unlisted/* {
 		root * /srv/unlisted
 		file_server
 	}
