@@ -9,7 +9,7 @@ services:
         - CADDY_VERSION=2.10.2
     restart: unless-stopped
     ports:
-      - 5080
+      - 5080:5080
     volumes:
       - ../Caddyfile:/etc/caddy/Caddyfile:ro
       - ../config/:/config/
