@@ -28,3 +28,11 @@ disabled.
 # Configuration
 
 * Caddy configuration is in `Caddyfile`
+
+# Build
+
+To build the docker image, run 
+`docker compose -f compose/docker-compose.yml build`.
+
+To generate the static site, run `./build.sh`, which runs `hugo` in the 
+`hugo-site` directory using a docker container.
