@@ -36,3 +36,12 @@ To build the docker image, run
 
 To generate the static site, run `./build.sh`, which runs `hugo` in the 
 `hugo-site` directory using a docker container.
+
+# Making posts
+
+All changes to the blog are made in the `hugo-site` directory.
+
+To add a new post, run `hugo new content content/my-post.md`. To use the 
+"good_idea" archetype, run `hugo new content --kind good_idea content/my-good-idea-post.md`.
+
+Archetypes are defined in `archetypes`.
