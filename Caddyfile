@@ -1,4 +1,7 @@
 {
+	metrics {
+		per_host
+	}
 }
 
 :5080 {
@@ -41,4 +44,9 @@
 		    hide .git-keep
 		}
 	}
+}
+
+# Expose metrics on an endpoint other than the admin API
+:9090 {
+	metrics
 }
