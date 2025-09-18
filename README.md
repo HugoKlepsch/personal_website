@@ -45,3 +45,11 @@ To add a new post, run `hugo new content content/my-post.md`. To use the
 "good_idea" archetype, run `hugo new content --kind good_idea content/my-good-idea-post.md`.
 
 Archetypes are defined in `archetypes`.
+
+# Running hugo locally
+
+`hugo` builds the site in release mode.
+
+`hugo -D` builds the site, including draft posts.
+
+`hugo serve -D` builds, with drafts, and starts a local web server (not in docker).
