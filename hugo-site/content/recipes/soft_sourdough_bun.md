@@ -27,14 +27,14 @@ or cranberries.
 ---
 
 1. Mix milk, butter, egg, sugar. Combine until homogenous. The milk should be 
-warm so that the butter does not re-solidify. Don't make too hot, or else 
+warm so that the butter does not re-solidify. Don't make it too hot, or else 
 yeast in starter will die.
 2. Add starter to mix. Whisk until dissolved/dispersed.
 3. In a second bowl, whisk together flour and salt. Add to wet ingredients.
 4. Stir until roughly together. Kneed until smooth, no clumps.
 5. Cover and let rise for 6 hours.
-6. Lightly flower counter and dough exposed in bowl. Using a bench scraper or 
-dough scraper, dump onto counter.
+6. Lightly flower the counter and the top of dough exposed in the bowl. Using a 
+bench scraper or dough scraper, dump onto the counter.
 7. Separate into parts as large as you want your buns to be ~10-24.
 8. Shape into taut buns. 
    1. Gently hold the top of the bun with your hand while pushing/scraping
