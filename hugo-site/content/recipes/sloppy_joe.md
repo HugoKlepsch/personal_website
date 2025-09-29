@@ -4,6 +4,7 @@ draft: false
 title: 'Sloppy Joe'
 tags:
   - 'Recipe'
+  - 'Dinner'
 ---
 
 ## I like em sloppy

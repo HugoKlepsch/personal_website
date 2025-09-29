@@ -4,11 +4,13 @@ draft: false
 title: 'Sourdough Loaf or Pizza dough'
 tags:
   - 'Recipe'
+  - 'Bread'
+  - 'Sourdough'
 ---
 
-See my [sourdough starter](/blog/recipes/sourdough_starter/) recipe for 
+See my [sourdough starter]({{< relref "sourdough_starter" >}}) recipe for 
 instructions on how to make and maintain a sourdough starter. Additionally,
-many of the techniques used in the [soft sourdough bun](/blog/recipes/soft_sourdough_bun/)
+many of the techniques used in the [soft sourdough bun]({{< relref "soft_sourdough_bun" >}})
 recipe apply here, namely shaping.
 
 ---
@@ -43,7 +45,7 @@ some gluten development.
 the fridge for 12 hours.
 10. After proofing, dump onto a lightly floured work surface and divide into two.
 11. Shape each into either a circular bun or a long loaf. The shaping techniques 
-from the [soft sourdough bun](/blog/recipes/soft_sourdough_bun/) recipe apply here. 
+from the [soft sourdough bun]({{< relref "soft_sourdough_bun" >}}) recipe apply here. 
 12. Place each on a parchment paper slice and let rise for 1-3 hours. The 
 parchment paper is used to transfer the dough to the dutch oven.
 13. Preheat the oven to 425°F with the dutch oven. It is better to use a 

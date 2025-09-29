@@ -4,6 +4,7 @@ draft: false
 title: 'Overnight Oats'
 tags:
   - 'Recipe'
+  - 'Breakfast'
 ---
 
 * 120g dry oats. Steel cut will remain firm. Thinner cuts like minute oats

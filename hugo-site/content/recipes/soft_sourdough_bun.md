@@ -4,11 +4,13 @@ draft: false
 title: 'Soft Sourdough Bun'
 tags:
   - 'Recipe'
+  - 'Bread'
+  - 'Sourdough'
 ---
 
 A soft bun, akin to a roll, using sourdough starter as a levener.
 
-See my [sourdough starter](/blog/recipes/sourdough_starter/) recipe for
+See my [sourdough starter]({{< relref "sourdough_starter" >}}) recipe for
 instructions on how to make and maintain a sourdough starter.
 
 Roughly 65% hydration dough. Works well with inclusions like rosemary, garlic

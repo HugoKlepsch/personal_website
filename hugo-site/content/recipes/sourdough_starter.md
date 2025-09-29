@@ -4,6 +4,7 @@ draft: false
 title: 'Sourdough Starter'
 tags:
   - 'Recipe'
+  - 'Sourdough'
 ---
 
 _You have to start somewhere._
