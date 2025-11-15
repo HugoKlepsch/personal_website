@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prevent Sleep</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            font-family: sans-serif;
+            display: grid;
+            place-items: center;
+        }
+        .card {
+            max-width: min(560px, 92vw);
+            border-radius: 16px;
+            padding: 1.5em;
+            box-shadow: 0 10px 25px rgba(0,0,0,.35);
+        }
+        h1 {
+            margin: 0 0 4px 0;
+            font-size: 1.6rem;
+        }
+        p {
+            margin: 0.25rem 0 1rem 0;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .status {
+            font-weight: 600;
+        }
+        .status.on { color: green; }
+        .status.off { color: grey; }
+        .note { font-size: .9rem;  }
+
+        /* Toggle button */
+        button {
+            padding: 12px 18px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,.08);
+            margin: 0.25em 0;
+        }
+
+        .footer { margin-top: 16px; font-size: .85rem; }
+        code { font-family: monospace; }
+    </style>
+    <meta name="description" content="This page prevents your computer from sleeping using the Screen Wake Lock API." />
+</head>
+<body>
+<main class="card" role="main">
+    <h1>Prevent Sleep</h1>
+    <p>Keep this page open and toggle wake lock to prevent your device from sleeping.</p>
+
+    <div class="row">
+        <div>
+            <div class="status off" id="status">Off</div>
+            <div class="note" id="supportNote">Checking browser support (Javascript required)…</div>
+        </div>
+        <button id="toggleBtn" disabled="disabled" aria-pressed="false">Turn On</button>
+    </div>
+
+    <div class="footer">
+        Uses the <code>Screen Wake Lock API</code> when available. Some browsers may require the page to be in the foreground.
+    </div>
+</main>
+
+<script>
+    (function () {
+        'use strict';
+
+        const btn = document.getElementById('toggleBtn');
+        const statusEl = document.getElementById('status');
+        const noteEl = document.getElementById('supportNote');
+
+        let wakeLock = null;       // The active WakeLockSentinel
+        let enabled = false;       // UI state for our toggle
+
+        const supported = 'wakeLock' in navigator;
+        if (!supported) {
+            btn.disabled = true;
+            noteEl.textContent = 'Screen Wake Lock API is not supported in this browser.';
+        } else {
+            btn.disabled = false;
+            noteEl.textContent = 'Screen Wake Lock API supported.';
+        }
+
+        function setUI(on) {
+            enabled = on;
+            btn.textContent = on ? 'Turn Off' : 'Turn On';
+            btn.setAttribute('aria-pressed', String(on));
+            statusEl.textContent = on ? 'On' : 'Off';
+            statusEl.classList.toggle('on', on);
+            statusEl.classList.toggle('off', !on);
+        }
+
+        async function requestWakeLock() {
+            if (!supported) return;
+            try {
+                // Request a screen wake lock
+                wakeLock = await navigator.wakeLock.request('screen');
+
+                // If the wake lock is released (e.g., system conditions), reflect it in the UI
+                wakeLock.addEventListener('release', () => {
+                    // Only update UI if we thought it was enabled
+                    if (enabled && wakeLock && wakeLock.released) {
+                        setUI(false);
+                        noteEl.textContent = 'Wake lock was released by the system, probably because the tab was not in the foreground.';
+                        wakeLock = null;
+                    }
+                });
+                setUI(true);
+                noteEl.textContent = 'Wake lock is active. Keep this tab visible for best results.';
+            } catch (err) {
+                setUI(false);
+                wakeLock = null;
+                if (err && err.name === 'NotAllowedError') {
+                    noteEl.textContent = 'Permission denied. Try interacting with the page (click) and then turn it on again.';
+                } else if (err && err.name === 'NotSupportedError') {
+                    noteEl.textContent = 'Wake lock not supported on this device.';
+                } else if (err && err.name === 'NotReadableError') {
+                    noteEl.textContent = 'Wake lock could not be acquired (NotReadableError).';
+                } else {
+                    noteEl.textContent = 'Failed to acquire wake lock: ' + (err && err.message ? err.message : String(err));
+                }
+            }
+        }
+
+        async function releaseWakeLock() {
+            if (wakeLock) {
+                try {
+                    await wakeLock.release();
+                } catch (_) {
+                    // ignore; best effort release
+                }
+                wakeLock = null;
+            }
+            setUI(false);
+            noteEl.textContent = 'Wake lock is off.';
+        }
+
+        // Re-acquire the lock when the tab becomes visible again
+        document.addEventListener('visibilitychange', async () => {
+            if (document.visibilityState === 'visible' && enabled && !wakeLock) {
+                await requestWakeLock();
+            }
+        });
+
+        btn.addEventListener('click', async () => {
+            if (!supported) return; // Should already be disabled
+            if (enabled) {
+                await releaseWakeLock();
+            } else {
+                await requestWakeLock();
+            }
+        });
+
+        // Initial UI
+        setUI(false);
+    })();
+</script>
+</body>
+</html>

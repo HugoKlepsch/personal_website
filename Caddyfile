@@ -4,6 +4,7 @@
 	}
 }
 
+# blog
 :5080 {
 	log {
 		format json
@@ -46,6 +47,29 @@
 
     handle {
         respond 404
+    }
+}
+
+# prevent-sleep
+:5081 {
+
+    handle_path / {
+        root * /srv/prevent-sleep
+        templates {
+            extensions {
+                hitCounter {
+                    style bright_green
+                    pad_digits 7
+                }
+            }
+        }
+        file_server {
+            index index.html
+        }
+    }
+
+    handle {
+        redir * /
     }
 }
 
