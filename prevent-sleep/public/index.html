@@ -72,7 +72,10 @@
         Uses the <code>Screen Wake Lock API</code> when available. Some browsers may require the page to be in the foreground.
     </div>
 </main>
-
+<div style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; padding: 1rem;">
+    <!--    Caddy will template this value into a hitcounter graphic-->
+    {{ hitCounter "prevent-sleep" }}
+</div>
 <script>
     (function () {
         'use strict';
